@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+
+.container {
+  max-width: 1920px;
+   min-height: 100vh;
+  height: auto;
+  margin: 0 auto;
+  background-color: #fafafa;
+}
+
+.main {
+  padding: 180px 140px 0;
+  background-color: #fafafa;
+}

@@ -1,0 +1,24 @@
+.AuthForm__form {
+  padding-top: 48px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: transparent;
+}
+
+.AuthForm__button {
+  margin-top: 24px;
+  background-color: #BCEC30;
+  border: none;
+  border-radius: 46px;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  padding: 16px 0 16px 0;
+  width: 100%;
+}

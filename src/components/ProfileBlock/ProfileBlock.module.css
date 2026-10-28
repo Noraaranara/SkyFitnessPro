@@ -1,0 +1,66 @@
+.ProfileBlock__title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 110%;
+}
+
+.ProfileBlock__wrapper {
+  padding: 40px 0 60px 0;
+  border-radius: 30px;
+}
+
+.ProfileBlock__profile {
+  padding: 30 0 30 30;
+  display: flex;
+  gap: 33px;
+  background-color: white;
+  box-shadow: 0px 4px 67px -12px #00000021;
+  border-radius: 30px;
+}
+
+.ProfileBlock__img {
+  border-radius: 20px;
+}
+
+.ProfileBlock__info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ProfileBlock__name {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 110%;
+}
+
+.ProfileBlock__login {
+  font-size: 18px;
+  font-weight: 400;
+  padding-bottom: 14px;
+}
+
+.ProfileBlock__btn {
+  background-color: transparent;
+  color: black;
+  border-radius: 46px;
+  border: 1px solid #000000;
+  padding: 16px 68px;
+  cursor: pointer;
+}
+
+.ProfileBlock__courses {
+  padding-top: 40px;
+  padding-bottom: 280px;
+
+  p{
+    padding-top: 20px;
+  }
+}
+
+.ProfileBlock__coursesList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 40;
+  margin-top: 40px;
+}

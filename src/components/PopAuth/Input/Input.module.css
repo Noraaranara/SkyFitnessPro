@@ -1,0 +1,35 @@
+.Input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+
+.Input__field {
+  border: 1px solid #d0cece;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 16px 0 16px 18px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 110%;
+  outline: none;
+
+  &::placeholder {
+    color: #d0cece;
+  }
+}
+
+.Input__field:focus {
+  border-color: #999;
+}
+
+.Input__field_error,
+.Input__field_error:focus {
+  border-color: #e53935;
+}
+
+.Input__error {
+  color: #e53935;
+  font-size: 14px;
+}
