@@ -1,0 +1,1 @@
+export const BASE__URL = 'https://wedev-api.sky.pro/api/fitness'

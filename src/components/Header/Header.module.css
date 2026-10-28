@@ -1,0 +1,128 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 140px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fafafa;
+  box-sizing: border-box;
+  max-width: 1920px;
+}
+
+.header__logoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  span {
+    font-weight: 400;
+    font-size: 18px;
+    color: #00000080;
+  }
+}
+
+.header__profile {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header__profileName {
+  font-size: 24px;
+  font-weight: 400;
+
+  &::after {
+    content: url(/public/icons/arrow.svg);
+  }
+}
+
+.header__profileArrow {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.header__profileArrow_open {
+  transform: rotate(180deg);
+}
+
+.header__profileBlock {
+  position: absolute;
+  top: 74px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 67px -12px #00000021;
+  border-radius: 30px;
+  z-index: 8;
+}
+
+.header__profileBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding: 30px;
+}
+
+.header__profileBlockInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__profileBlockName {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header__profileBlockMail {
+  color: #999999;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header__profileBlockButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__profileBlockProfile {
+  /* width: 100%; */
+  background-color: #bcec30;
+  color: #000000;
+  border: none;
+  border-radius: 46px;
+  padding: 16px 46px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header__profileBlockLogout {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 46px;
+  padding: 16px 76px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header__pr,
+.header__button {
+  background-color: #bcec30;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 16px 26px;
+  color: black;
+  border-radius: 46px;
+  border: none;
+  cursor: pointer;
+}
