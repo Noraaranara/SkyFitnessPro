@@ -1,0 +1,26 @@
+.SkillCard {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 310px;
+  overflow: hidden;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding-left: 40px;
+}
+
+.SkillCard__title {
+  position: relative;
+  z-index: 1;
+  font-size: 60px;
+  font-weight: 500;
+  color: white;
+  padding-top: 40px;
+}
+
+.SkillCard__img {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  
+}
