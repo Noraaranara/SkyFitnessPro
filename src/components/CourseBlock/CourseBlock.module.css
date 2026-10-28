@@ -1,0 +1,138 @@
+.CourseBlock__title {
+  padding: 60px 0 40px 0;
+  font-weight: 600;
+  font-size: 40px;
+  color: black;
+}
+
+.CourseBlock__fittingsBox {
+  display: flex;
+  gap: 16px;
+}
+
+.CourseBlock__fitting {
+  background-color: #151720;
+  border-radius: 28px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.CourseBlock__num {
+  font-size: 74px;
+  font-weight: 500;
+  line-height: 135%;
+  color: #bcec30;
+}
+
+.CourseBlock__fit {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 110%;
+  color: white;
+}
+
+.CourseBlock__directionsBox {
+  background-color: #bcec30;
+  border-radius: 28px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 124;
+  row-gap: 34;
+}
+
+.CourseBlock__direction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.CourseBlock__direct {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 110%;
+  color: black;
+}
+
+.CourseBlock__start {
+  margin-top: 102px;
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 67px -12px #00000021;
+  border-radius: 30px;
+}
+
+.CourseBlock__startBlock {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 28px;
+  padding: 40px 0 40px 40px;
+  z-index: 3;
+}
+
+.CourseBlock__startTitle {
+  font-size: 60px;
+  font-weight: 500;
+  max-width: 400px;
+  line-height: 100%;
+}
+
+.CourseBlock__startInfo {
+  padding-left: 40px;
+}
+
+.CourseBlock__startList {
+  font-size: 24px;
+  font-weight: 400;
+  color: #00000099;
+  list-style-type: disc;
+  padding-bottom: 8px;
+
+  &::marker {
+    padding-left: 40px;
+    font-size: 20px;
+  }
+}
+
+.CourseBlock__startbtn {
+  color: black;
+  background-color: #bcec30;
+  border-radius: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 437px;
+  padding: 16px 0 16px 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 110%;
+}
+
+.CourseBlock__startImg {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  right: 0;
+  bottom: 0;
+  width: 55%;
+  pointer-events: none;
+}
+
+.CourseBlock__startBg {
+  position: absolute;
+  z-index: 1;
+  top:8;
+  right: 0;
+}
+
+.CourseBlock__startRunner {
+  position: absolute;
+  z-index: 2;
+  bottom: 20;
+  right: 30;
+}
