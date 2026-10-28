@@ -37,10 +37,6 @@
 .header__profileName {
   font-size: 24px;
   font-weight: 400;
-
-  &::after {
-    content: url(/public/icons/arrow.svg);
-  }
 }
 
 .header__profileArrow {
