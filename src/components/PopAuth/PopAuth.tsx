@@ -12,9 +12,11 @@ export default function PopAuth({ onClose }: AuthModalProps) {
   const [isLogin, setIsLogin] = useState(true);
   
   return (
-    <section className={styles.PopAuth}>
-      <div className={styles.PopAuth__container}>
-        <div className={styles.PopAuth__Block}>
+    <section className={styles.PopAuth} >
+      <div className={styles.PopAuth__container}onClick={() => {
+    onClose();
+  }}>
+        <div className={styles.PopAuth__Block} onClick={(e) => e.stopPropagation()}>
           <Image
             alt="logo"
             src={'/logo.png'}
