@@ -74,7 +74,7 @@ export default function ProfileBlock() {
         ) : (
           <div className={styles.ProfileBlock__coursesList}>
             {myCourses.map((course) => (
-              <CourseItem key={course._id} course={course} />
+              <CourseItem key={course._id} course={course} showProgress />
             ))}
           </div>
         )}

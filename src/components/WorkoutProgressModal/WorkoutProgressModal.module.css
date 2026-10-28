@@ -1,0 +1,123 @@
+.Overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgb(0 0 0 / 50%);
+}
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  max-height: min(700px, 85vh);
+  padding: 40px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-sizing: border-box;
+  max-width: 426px;
+}
+
+.Modal__title {
+  flex-shrink: 0;
+  margin: 0 0 38px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.Modal__form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.Modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: 8px;
+}
+
+.Modal__exercise {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Modal__label {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.Modal__input {
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 18px;
+  border: 1px solid #D0CECE;
+  border-radius: 10px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 18px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.Modal__input::placeholder {
+  color: #D0CECE;
+}
+
+.Modal__saveButton {
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 34px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 46px;
+  background: #bcec30;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.Modal__saveButton:hover {
+  background: #aee51c;
+}
+
+.Modal__saveButton:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+@media (max-width: 600px) {
+  .Overlay {
+    padding: 8px;
+  }
+
+  .Modal {
+    max-height: 90vh;
+    padding: 30px 24px;
+    border-radius: 30px;
+  }
+
+  .Modal__title {
+    margin-bottom: 38px;
+    font-size: 32px;
+  }
+
+  .Modal__label {
+    font-size: 18px;
+  }
+}
