@@ -1,0 +1,53 @@
+.MainBlock {
+  padding-bottom: 80px;
+}
+
+.MainBlock__titleGroup {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+.MainBlock__title {
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 100%;
+}
+
+.MainBloch__imgGroup {
+  position: relative;
+
+  span {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    font-size: 32px;
+    max-width: 248px;
+  }
+}
+
+.MainBlock__courses {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 360px));
+  justify-content: space-between;
+  gap: 40px 16px;
+  width: 100%;
+  align-items: start;
+  padding-bottom: 34px;
+}
+
+.MainBlock__btnWrapper {
+  display: flex;
+ justify-content: center;
+}
+.MainBlock__button {
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  border-radius: 46px;
+  background-color: #bcec30;
+  color: black;
+  padding: 16px 26px;
+  margin: auto 0;
+  cursor: pointer;
+}
