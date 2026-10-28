@@ -1,0 +1,68 @@
+.Course {
+  box-shadow: 0px 4px 67px -12px #00000021;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.Course__imgBox {
+  position: relative;
+  width: 100%;
+}
+
+.Course__img {
+  border-radius: 30px;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 360 / 324;
+  object-fit: cover;
+}
+
+.Course__btn {
+  position: absolute;
+  right: 22;
+  top: 22;
+  z-index: 10;
+}
+
+.Course__info {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 30px 15px 30px;
+  gap: 20px;
+}
+
+.Course__title {
+  font-size: 32px;
+  font-weight: 500;
+  color: black;
+}
+
+.Course__items {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.Course__days,
+.Course__time,
+.Course__difficulty {
+  background-color: #f7f7f7;
+  border-radius: 50px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  span {
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+  }
+}
