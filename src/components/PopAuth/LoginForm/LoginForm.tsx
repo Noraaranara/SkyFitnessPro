@@ -15,6 +15,11 @@ type LoginFormProps = {
   onClose: () => void;
 };
 
+type FieldErrors = {
+  email?: string;
+  password?: string;
+};
+
 export default function LoginForm({ onClose }: LoginFormProps) {
   const dispatch = useAppDispatch();
 
@@ -27,17 +32,34 @@ export default function LoginForm({ onClose }: LoginFormProps) {
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+    setFieldErrors((prev) => ({ ...prev, email: undefined }));
+    setServerError('');
   };
+
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
+    setFieldErrors((prev) => ({ ...prev, password: undefined }));
+    setServerError('');
   };
 
   const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLocalError('');
+    setFieldErrors({});
+    setServerError('');
 
-    if (!email.trim() || !password.trim()) {
-      return setLocalError('Заполните все поля');
+    const errors: FieldErrors = {};
+
+    if (!email.trim()) {
+      errors.email = 'Введите email';
+    }
+
+    if (!password.trim()) {
+      errors.password = 'Введите пароль';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
     }
 
     try {
@@ -64,9 +86,11 @@ export default function LoginForm({ onClose }: LoginFormProps) {
         ? err.response?.data?.message
         : null;
 
-      setLocalError(
+      setServerError(
         message || 'Не удалось зарегистрироваться. Попробуйте ещё раз.',
       );
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
@@ -79,7 +103,18 @@ export default function LoginForm({ onClose }: LoginFormProps) {
         error={fieldErrors.email}
         invalid={Boolean(fieldErrors.email)}
       />
-      <Input onChange={onChangePassword} placeholder="Пароль" type="password" />
+      <Input
+        onChange={onChangePassword}
+        placeholder="Пароль"
+        type="password"
+        error={fieldErrors.password}
+        invalid={Boolean(fieldErrors.password)}
+      />
+      {serverError && (
+        <p className="formError" role="alert">
+          {serverError}
+        </p>
+      )}
     </AuthForm>
   );
 }

@@ -30,3 +30,10 @@ a {
 li {
   list-style-type: none;
 }
+
+.formError {
+  color: #e53935;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
