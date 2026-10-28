@@ -1,0 +1,147 @@
+
+.Overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgb(0 0 0 / 50%);
+}
+
+.Modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  max-height: min(700px, 85vh);
+  padding: 40px;
+  border-radius: 30px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.Title {
+  margin-bottom: 38px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.List {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: 20px;
+}
+
+.Workout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #C4C4C4;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.Workout:hover {
+  background: #f8f8f8;
+}
+
+.CheckCircle {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.CheckCircleSelected {
+  border-color: #BCEC30;
+  background-color: #BCEC30;
+}
+
+.CheckIcon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.WorkoutText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.WorkoutName {
+  color: #000000;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 110%;
+  padding-top: 10px;
+}
+
+.WorkoutSubtitle {
+  color: #000000;
+  font-size: 16px;
+  line-height: 110%;
+}
+
+.Empty {
+  padding: 20px 0;
+  color: #000000;
+  text-align: center;
+}
+
+.StartButton {
+  flex-shrink: 0;
+  width: 100%;
+  margin-top: 34px;
+  padding: 16px 160px;
+  border: none;
+  border-radius: 46px;
+  background: #BCEC30;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.StartButton:disabled {
+  background: #c8c8c8;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .Workout {
+    gap: 12px;
+    padding: 16px 2px;
+  }
+
+  .WorkoutName {
+    font-size: 15px;
+  }
+
+  .WorkoutSubtitle {
+    font-size: 13px;
+  }
+}
