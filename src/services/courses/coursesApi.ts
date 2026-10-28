@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { BASE__URL } from '../constants';
-import { CourseProgressType, CourseType } from '@/sharedTypes/sharedTypes';
+import { CourseType } from '@/sharedTypes/sharedTypes';
 
 type ApiMessage = {
   message: string;
@@ -46,46 +46,5 @@ export const removeCourseFromUser = (
         Authorization: `Bearer ${token}`,
       },
     })
-    .then((res) => res.data);
-};
-
-export const getCourseWorkouts = (courseId: string, token: string) => {
-  return axios
-    .get(`${BASE__URL}/courses/${courseId}/workouts`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => res.data);
-};
-
-export const getCourseProgress = (
-  courseId: string,
-  token: string,
-): Promise<CourseProgressType> => {
-  return axios
-    .get(`${BASE__URL}/users/me/progress`, {
-      params: { courseId },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => res.data);
-};
-
-export const resetCourseProgress = (
-  courseId: string,
-  token: string,
-): Promise<ApiMessage> => {
-  return axios
-    .patch(
-      `${BASE__URL}/courses/${courseId}/reset`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
-    )
     .then((res) => res.data);
 };
