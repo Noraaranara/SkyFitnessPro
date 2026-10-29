@@ -18,6 +18,7 @@ import { openAuthModal, setUser } from '@/store/features/authSlice';
 import { useRouter } from 'next/navigation';
 import WorkoutSelectModal from '../WorkoutSelectModal/WorkoutSelectModal';
 import { toast } from 'react-toastify';
+import { getApiErrorMessage } from '@/services/getApiErrorMessage';
 
 export type CourseItemProps = {
   course: CourseType;
@@ -73,8 +74,11 @@ export default function CourseItem({
 
         setProgress(percentage);
       } catch (error) {
-        console.error('Не удалось загрузить прогресс курса:', error);
-
+        const message = getApiErrorMessage(
+          error,
+          'Не удалось загрузить прогресс курса:',
+        );
+        toast.error(message);
         if (!cancelled) {
           setProgress(null);
         }
@@ -125,8 +129,12 @@ export default function CourseItem({
         );
         toast.success('Курс добавлен в ваш список');
       }
-    } catch {
-      toast.error('Не удалось изменить список курсов');
+    } catch (error) {
+      const message = getApiErrorMessage(
+        error,
+        'Не удалось изменить список курсов',
+      );
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
@@ -150,8 +158,8 @@ export default function CourseItem({
       setWorkouts(data);
       setIsWorkoutModalOpen(true);
     } catch (error) {
-      console.error('Не удалось загрузить тренировки:', error);
-      toast.error('Не удалось загрузить список тренировок');
+      const message = getApiErrorMessage(error, 'Не удалось добавить курс');
+      toast.error(message);
     } finally {
       setIsWorkoutsLoading(false);
     }

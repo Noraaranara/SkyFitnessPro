@@ -11,12 +11,14 @@ import CourseItem from '../CourseItem/CourseItem';
 import { getAllCourses } from '@/services/courses/coursesApi';
 import { setAllCourses } from '@/store/features/courseSlice';
 import { toast } from 'react-toastify';
+import { getApiErrorMessage } from '@/services/getApiErrorMessage';
 
 export default function ProfileBlock() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
   const { allCourses } = useAppSelector((state) => state.courses);
   const router = useRouter();
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -26,13 +28,26 @@ export default function ProfileBlock() {
         const courses = await getAllCourses();
         dispatch(setAllCourses(courses));
       } catch (error) {
-        console.error('Не удалось загрузить курсы:', error);
-        toast.error('Не удалось загрузить список курсов');
+        const message = getApiErrorMessage(
+          error,
+          'Не удалось загрузить список курсов',
+        );
+        toast.error(message);
       }
     };
 
     fetchCourses();
   }, [dispatch, allCourses.length]);
+
+  useEffect(() => {
+    if (!isAuth) {
+      router.replace(ROUTER.main);
+    }
+  }, [isAuth, router]);
+
+  if (!isAuth) {
+    return null;
+  }
 
   const handleLogout = () => {
     dispatch(clearUser());

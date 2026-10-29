@@ -4,6 +4,7 @@ import AuthForm from '../AuthForm/AuthForm';
 import Input from '../Input/Input';
 import { registerUser } from '@/services/auth/authApi';
 import axios from 'axios';
+import { getApiErrorMessage } from '@/services/getApiErrorMessage';
 
 type RegisterFormProps = {
   onRegisterSuccess: () => void;
@@ -82,13 +83,10 @@ export default function RegisterForm({
       });
 
       onRegisterSuccess();
-    } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? err.response?.data?.message
-        : null;
-
+    } catch (error) {
+      const message = getApiErrorMessage(error, 'Не удалось зарегистрироваться. Попробуйте ещё раз.')
       setServerError(
-        message || 'Не удалось зарегистрироваться. Попробуйте ещё раз.',
+        message
       );
     }
   };

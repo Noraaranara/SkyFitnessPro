@@ -10,6 +10,7 @@ import {
 } from '@/store/features/authSlice';
 import { authUser, getCurrentUser } from '@/services/auth/authApi';
 import axios from 'axios';
+import { getApiErrorMessage } from '@/services/getApiErrorMessage';
 
 type LoginFormProps = {
   onClose: () => void;
@@ -79,14 +80,12 @@ export default function LoginForm({ onClose }: LoginFormProps) {
       localStorage.setItem('user', JSON.stringify(user));
 
       onClose();
-    } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? err.response?.data?.message
-        : null;
-
-      setServerError(
-        message || 'Не удалось зарегистрироваться. Попробуйте ещё раз.',
+    } catch (error) {
+      const message = getApiErrorMessage(
+        error,
+        'Не удалось сохранить прогресс. Попробуйте ещё раз.',
       );
+      setServerError(message);
     } finally {
       dispatch(setLoading(false));
     }

@@ -1,68 +1,68 @@
-import {  ApiMessage, CourseProgressType, WorkoutProgressResponse, WorkoutType } from "@/sharedTypes/sharedTypes";
-import axios from "axios";
-import { BASE__URL } from "../constants";
+import {
+  ApiMessage,
+  CourseProgressType,
+  WorkoutProgressResponse,
+  WorkoutType,
+} from '@/sharedTypes/sharedTypes';
+import api from '../api';
 
-export const getWorkoutById = (
+export const getWorkoutById = async (
   workoutId: string,
   token: string,
 ): Promise<WorkoutType> => {
-  return axios
-    .get(`${BASE__URL}/workouts/${workoutId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => res.data);
+  const response = await api.get(`/workouts/${workoutId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
 };
 
-export const getWorkoutProgress = (
+export const getWorkoutProgress = async (
   courseId: string,
   token: string,
 ): Promise<CourseProgressType> => {
-  return axios
-    .get(`${BASE__URL}/users/me/progress`, {
-      params: { courseId },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => res.data);
+  const response = await api.get('/users/me/progress', {
+    params: { courseId },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
 };
 
-export const saveWorkoutProgress = (
+export const saveWorkoutProgress = async (
   courseId: string,
   workoutId: string,
   progressData: number[],
   token: string,
 ): Promise<WorkoutProgressResponse> => {
-  return axios
-    .patch(
-      `${BASE__URL}/courses/${courseId}/workouts/${workoutId}`,
-      { progressData },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': false,
-        },
+  const response = await api.patch(
+    `/courses/${courseId}/workouts/${workoutId}`,
+    { progressData },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': false,
       },
-    )
-    .then((res) => res.data);
+    },
+  );
+  return response.data;
 };
 
-export const resetWorkoutProgress = (
+export const resetWorkoutProgress = async (
   courseId: string,
   workoutId: string,
   token: string,
 ): Promise<ApiMessage> => {
-  return axios
-    .patch(
-      `${BASE__URL}/courses/${courseId}/workouts/${workoutId}/reset`,
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+  const response = await api.patch(
+    `/courses/${courseId}/workouts/${workoutId}/reset`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
-    )
-    .then((res) => res.data);
+    },
+  );
+  return response.data;
 };

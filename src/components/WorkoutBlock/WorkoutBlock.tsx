@@ -8,6 +8,7 @@ import { fetchWorkout, saveWorkoutProgress } from '@/utils/fetchWorkout';
 import styles from './WorkoutBlock.module.css';
 import WorkoutProgressModal from '../WorkoutProgressModal/WorkoutProgressModal';
 import { toast } from 'react-toastify';
+import { getApiErrorMessage } from '@/services/getApiErrorMessage';
 
 export default function WorkoutBlock() {
   const params = useParams<{
@@ -115,8 +116,9 @@ export default function WorkoutBlock() {
 
       setIsFormOpen(false);
       toast.success('Прогресс тренировки сохранён!');
-    } catch {
-      toast.error('Не удалось сохранить прогресс. Попробуйте ещё раз.');
+    } catch (error){
+      const message = getApiErrorMessage(error, 'Не удалось сохранить прогресс. Попробуйте ещё раз.')
+      toast.error(message);
     }
   };
 
