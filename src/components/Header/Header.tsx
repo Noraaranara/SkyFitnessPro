@@ -6,9 +6,14 @@ import styles from '@/components/Header/Header.module.css';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/store';
 import { ROUTER } from '@/app/routes';
-import { clearUser, closeAuthModal, openAuthModal } from '@/store/features/authSlice';
+import {
+  clearUser,
+  closeAuthModal,
+  openAuthModal,
+} from '@/store/features/authSlice';
 import PopAuth from '../PopAuth/PopAuth';
 import { useRouter } from 'next/navigation';
+import Button from '../Button/Button';
 
 export default function Header() {
   const dispatch = useAppDispatch();
@@ -37,7 +42,13 @@ export default function Header() {
           className={styles.header__logoGroup}
           onClick={closeProfileMenu}
         >
-          <Image src={'/logo.png'} width={220} height={36} alt="logo" />
+          <Image
+            src={'/logo.png'}
+            width={220}
+            height={36}
+            alt="logo"
+            loading="eager"
+          />
           <span>Онлайн-тренировки для занятий дома</span>
         </Link>
         {isAuth ? (
@@ -86,27 +97,31 @@ export default function Header() {
                     >
                       Мой профиль
                     </Link>
-                    <button
+                    <Button
+                      variant="secondary"
+                      padding="16px 76px"
                       onClick={handleLogout}
-                      className={styles.header__profileBlockLogout}
                     >
                       Выйти
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
             )}
           </div>
         ) : (
-          <button
+          <Button
+            variant="primary"
+            padding="16px 26px"
             onClick={() => dispatch(openAuthModal())}
-            className={styles.header__button}
           >
             Войти
-          </button>
+          </Button>
         )}
       </header>
-      {isAuthModalOpen && <PopAuth onClose={() => dispatch(closeAuthModal())} />}
+      {isAuthModalOpen && (
+        <PopAuth onClose={() => dispatch(closeAuthModal())} />
+      )}
     </>
   );
 }

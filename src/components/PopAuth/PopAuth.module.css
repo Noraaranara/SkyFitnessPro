@@ -32,19 +32,3 @@
   align-items: center;
   justify-content: center;
 }
-
-.PopAuth__btn {
-  border: 1px solid #000000;
-  border-radius: 46px;
-  background-color: transparent;
-  color: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 110%;
-  width: 100%;
-  padding: 16px 0 16px 0;
-}

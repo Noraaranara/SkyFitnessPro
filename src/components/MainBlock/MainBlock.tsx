@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { getAllCourses } from '@/services/courses/coursesApi';
 import { setAllCourses } from '@/store/features/courseSlice';
 import CourseItem from '../CourseItem/CourseItem';
+import Button from '../Button/Button';
 
 export default function MainBlock() {
   const dispatch = useAppDispatch();
@@ -42,13 +43,13 @@ export default function MainBlock() {
         ))}
       </div>
       <div className={styles.MainBlock__btnWrapper}>
-        <button
+        <Button
+          padding="16px 26px"
           type="button"
-          className={styles.MainBlock__button}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           Наверх ↑
-        </button>
+        </Button>
       </div>
     </div>
   );

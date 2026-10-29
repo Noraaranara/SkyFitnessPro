@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { BASE__URL } from '../constants';
-import { CourseType } from '@/sharedTypes/sharedTypes';
+
+import { CourseProgressType, CourseType } from '@/sharedTypes/sharedTypes';
 
 type ApiMessage = {
   message: string;
@@ -42,6 +43,30 @@ export const removeCourseFromUser = (
 ): Promise<ApiMessage> => {
   return axios
     .delete(`${BASE__URL}/users/me/courses/${courseId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => res.data);
+};
+
+export const getCourseWorkouts = (courseId: string, token: string) => {
+  return axios
+    .get(`${BASE__URL}/courses/${courseId}/workouts`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => res.data);
+};
+
+export const getCourseProgress = (
+  courseId: string,
+  token: string,
+): Promise<CourseProgressType> => {
+  return axios
+    .get(`${BASE__URL}/users/me/progress`, {
+      params: { courseId },
       headers: {
         Authorization: `Bearer ${token}`,
       },

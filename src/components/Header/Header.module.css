@@ -100,25 +100,3 @@
   font-size: 18px;
   font-weight: 400;
 }
-
-.header__profileBlockLogout {
-  width: 100%;
-  background-color: transparent;
-  border: 1px solid #000000;
-  border-radius: 46px;
-  padding: 16px 76px;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.header__pr,
-.header__button {
-  background-color: #bcec30;
-  font-weight: 400;
-  font-size: 18px;
-  padding: 16px 26px;
-  color: black;
-  border-radius: 46px;
-  border: none;
-  cursor: pointer;
-}

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import LoginForm from './LoginForm/LoginForm';
 import RegisterForm from './RegisterForm/RegisterForm';
+import Button from '../Button/Button';
 
 type AuthModalProps = {
   onClose: () => void;
@@ -25,7 +26,7 @@ export default function PopAuth({ onClose }: AuthModalProps) {
             className={styles.PopAuth__logo}
           />
           {isLogin ? <LoginForm onClose={onClose}/> : <RegisterForm onRegisterSuccess={() => setIsLogin(true)} />}
-          <button onClick={() => setIsLogin(!isLogin)} className={styles.PopAuth__btn}>{ isLogin ? 'Зарегистрироваться' : 'Войти'}</button>
+          <Button variant='secondary' padding='16px 0' width='full' onClick={() => setIsLogin(!isLogin)}>{ isLogin ? 'Зарегистрироваться' : 'Войти'}</Button>
         </div>
       </div>
     </section>

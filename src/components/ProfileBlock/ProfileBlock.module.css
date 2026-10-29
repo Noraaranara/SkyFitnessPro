@@ -40,15 +40,6 @@
   padding-bottom: 14px;
 }
 
-.ProfileBlock__btn {
-  background-color: transparent;
-  color: black;
-  border-radius: 46px;
-  border: 1px solid #000000;
-  padding: 16px 68px;
-  cursor: pointer;
-}
-
 .ProfileBlock__courses {
   padding-top: 40px;
   padding-bottom: 280px;

@@ -38,16 +38,5 @@
 
 .MainBlock__btnWrapper {
   display: flex;
- justify-content: center;
-}
-.MainBlock__button {
-  font-size: 18px;
-  font-weight: 400;
-  border: none;
-  border-radius: 46px;
-  background-color: #bcec30;
-  color: black;
-  padding: 16px 26px;
-  margin: auto 0;
-  cursor: pointer;
+  justify-content: center;
 }

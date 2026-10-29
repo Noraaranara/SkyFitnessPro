@@ -69,10 +69,16 @@ export default function WorkoutBlock() {
   };
 
   const handleProgressChange = (index: number, value: string) => {
-    const numberValue = Number(value);
-
     setFormProgress((current) => {
       const updated = [...current];
+
+      if (value === '') {
+        updated[index] = -1;
+        return updated;
+      }
+
+      const numberValue = Number(value);
+
       updated[index] = Math.max(
         0,
         Math.min(
@@ -96,7 +102,10 @@ export default function WorkoutBlock() {
         progressData: workout.exercises.map((exercise, index) =>
           Math.max(
             0,
-            Math.min(exercise.quantity, Number(formProgress[index] ?? 0)),
+            Math.min(
+              exercise.quantity,
+              Math.max(0, Number(formProgress[index] ?? 0)),
+            ),
           ),
         ),
       }),
@@ -166,7 +175,9 @@ export default function WorkoutBlock() {
             className={styles.WorkoutBlock__progressButton}
             onClick={() => {
               setFormProgress(
-                workout.exercises.map((_, index) => progressData[index] ?? 0),
+                workout.exercises.map((_, index) =>
+                  (progressData[index] ?? 0) > 0 ? progressData[index] : -1,
+                ),
               );
               setIsFormOpen(true);
             }}

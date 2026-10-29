@@ -28,8 +28,6 @@ export default function LoginForm({ onClose }: LoginFormProps) {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [serverError, setServerError] = useState('');
 
-  const [localError, setLocalError] = useState('');
-
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setFieldErrors((prev) => ({ ...prev, email: undefined }));

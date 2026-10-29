@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import CourseItem from '../CourseItem/CourseItem';
 import { getAllCourses } from '@/services/courses/coursesApi';
 import { setAllCourses } from '@/store/features/courseSlice';
+import Button from '../Button/Button';
 
 export default function ProfileBlock() {
   const dispatch = useAppDispatch();
@@ -60,9 +61,9 @@ export default function ProfileBlock() {
             <span className={styles.ProfileBlock__login}>
               Логин: {user?.email}
             </span>
-            <button onClick={handleLogout} className={styles.ProfileBlock__btn}>
+            <Button variant='secondary' padding='16px 68px' onClick={handleLogout}>
               Выйти
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -74,7 +75,7 @@ export default function ProfileBlock() {
         ) : (
           <div className={styles.ProfileBlock__coursesList}>
             {myCourses.map((course) => (
-              <CourseItem key={course._id} course={course} />
+              <CourseItem key={course._id} course={course} showProgress/>
             ))}
           </div>
         )}

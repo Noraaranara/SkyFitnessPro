@@ -69,18 +69,26 @@ export default function WorkoutProgressModal({
                   {exercise.name}
                 </label>
 
-                <input
-                  className={styles.Modal__input}
-                  id={`exercise-${exercise._id}`}
-                  type="number"
-                  min={0}
-                  max={exercise.quantity}
-                  step={1}
-                  value={progress[index] ?? 0}
-                  onChange={(event) =>
-                    onProgressChange(index, event.target.value)
-                  }
-                />
+                <div className={styles.Modal__inputWrapper}>
+                  <input
+                    className={styles.Modal__input}
+                    id={`exercise-${exercise._id}`}
+                    type="number"
+                    min={0}
+                    max={exercise.quantity}
+                    step={1}
+                    value={
+                      progress[index] === -1 ? '' : (progress[index] ?? '')
+                    }
+                    onChange={(event) =>
+                      onProgressChange(index, event.target.value)
+                    }
+                  />
+
+                  {progress[index] === -1 && (
+                    <span className={styles.Modal__placeholder}>0</span>
+                  )}
+                </div>
               </div>
             ))}
 

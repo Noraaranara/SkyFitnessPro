@@ -1,14 +1,65 @@
 import Image from 'next/image';
 import { CourseType } from '@/sharedTypes/sharedTypes';
 import SkillCard from '../SkillCard/SkillCard';
-import Link from 'next/link';
 import styles from '@/components/CourseBlock/CourseBlock.module.css';
+import Button from '../Button/Button';
+import { useAppDispatch, useAppSelector } from '@/store/store';
+import { useState } from 'react';
+import { openAuthModal, setUser } from '@/store/features/authSlice';
+import { addCourseToUser } from '@/services/courses/coursesApi';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 type CourseBlockProps = {
   course: CourseType;
 };
 
 export default function CourseBlock({ course }: CourseBlockProps) {
+  const dispatch = useAppDispatch();
+  const { user, token } = useAppSelector((state) => state.auth);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const isAdded = user?.selectedCourses.includes(course._id) ?? false;
+
+  const handleAddCourse = async () => {
+    if (!token || !user) {
+      toast.info('Войдите, чтобы добавить курс');
+      dispatch(openAuthModal());
+      return;
+    }
+
+    if (isAdded) {
+      toast.info('Этот курс уже добавлен');
+      return;
+    }
+
+    if (isLoading) return;
+
+    try {
+      setIsLoading(true);
+
+      await addCourseToUser(course._id, token);
+
+      dispatch(
+        setUser({
+          ...user,
+          selectedCourses: [...user.selectedCourses, course._id],
+        }),
+      );
+
+      toast.success('Курс успешно добавлен!');
+    } catch (err) {
+      const errorMessage = axios.isAxiosError(err)
+        ? err.response?.data?.message
+        : null;
+
+      toast.error(errorMessage || 'Не удалось добавить курс');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className={styles.CourseBlock}>
       <SkillCard course={course} />
@@ -60,9 +111,19 @@ export default function CourseBlock({ course }: CourseBlockProps) {
               помогают противостоять стрессам
             </li>
           </ul>
-          <Link href={''} className={styles.CourseBlock__startbtn}>
-            Добавить курс
-          </Link>
+          <Button
+            padding="16px 0"
+            onClick={handleAddCourse}
+            disabled={isLoading || isAdded}
+            width="437px"
+            className={styles.CourseBlock__startbtn}
+          >
+            {isLoading
+              ? 'Добавляем...'
+              : isAdded
+                ? 'Курс добавлен'
+                : 'Добавить курс'}
+          </Button>
         </div>
         <div className={styles.CourseBlock__startImg}>
           <Image
