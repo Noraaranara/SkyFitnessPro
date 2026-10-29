@@ -1,4 +1,3 @@
-import Button from '@/components/Button/Button';
 import styles from '@/components/PopAuth/AuthForm/AuthForm.module.css';
 
 type AuthFormProps = {
@@ -15,9 +14,7 @@ export default function AuthForm({
   return (
     <form onSubmit={onSubmit} className={styles.AuthForm__form}>
       {children}
-      <Button type='submit' padding="16px 0" width="full">
-        {buttonText}
-      </Button>
+      <button className={styles.AuthForm__button}>{buttonText}</button>
     </form>
   );
 }

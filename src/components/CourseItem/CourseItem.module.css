@@ -116,3 +116,55 @@
   opacity: 0.6;
   cursor: wait;
 }
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .Course__info {
+    padding: 20px 22px 16px;
+    gap: 16px;
+  }
+
+  .Course__title {
+    font-size: 26px;
+    overflow-wrap: anywhere;
+  }
+
+  .Course__days,
+  .Course__time,
+  .Course__difficulty {
+    padding: 8px 10px;
+  }
+
+  .Course__days span,
+  .Course__time span,
+  .Course__difficulty span {
+    font-size: 14px;
+  }
+
+  .Course__btn {
+    right: 16px;
+    top: 16px;
+  }
+
+  .Course__progressInfo {
+    font-size: 16px;
+  }
+
+  .Course__progressBtn {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Course__info {
+    padding: 24px 22px;
+  }
+
+  .Course__title {
+    font-size: 24px;
+  }
+
+  .Course__progressBtn {
+    font-size: 16px;
+  }
+}

@@ -40,3 +40,64 @@
   display: flex;
   justify-content: center;
 }
+
+.MainBlock__button {
+  padding: 16px 26px;
+  background-color: #bcec30;
+
+  &:hover {
+    background-color: #c6ff00;
+  }
+
+  &:active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .MainBlock__title {
+    font-size: 44px;
+  }
+
+  .MainBlock__titleGroup {
+    gap: 24px;
+    align-items: center;
+  }
+
+  .MainBloch__imgGroup {
+    flex-shrink: 0;
+    transform: scale(0.8);
+    transform-origin: right center;
+  }
+
+  .MainBlock__courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .MainBlock {
+    padding-bottom: 30px;
+  }
+
+  .MainBlock__title {
+    font-size: 32px;
+  }
+
+  .MainBloch__imgGroup {
+    display: none;
+  }
+
+  .MainBlock__courses {
+    grid-template-columns: none;
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+
+  .MainBlock__btnWrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

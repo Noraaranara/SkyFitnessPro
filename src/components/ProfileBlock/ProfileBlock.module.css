@@ -10,7 +10,7 @@
 }
 
 .ProfileBlock__profile {
-  padding: 30 0 30 30;
+  padding: 30px 0px 30px 30px;
   display: flex;
   gap: 33px;
   background-color: white;
@@ -40,18 +40,157 @@
   padding-bottom: 14px;
 }
 
+.ProfileBlock__btn {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 16px 68px;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+
+  &:active {
+    background-color: #e9eced;
+    color: #000000;
+  }
+}
+
 .ProfileBlock__courses {
   padding-top: 40px;
   padding-bottom: 280px;
 
-  p{
+  p {
     padding-top: 20px;
   }
 }
 
 .ProfileBlock__coursesList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 40;
   margin-top: 40px;
+}
+.ProfileBlock__btnWrapper {
+  display: none;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .ProfileBlock__title {
+    font-size: 32px;
+  }
+
+  .ProfileBlock__wrapper {
+    padding: 30px 0 40px;
+  }
+
+  .ProfileBlock__profile {
+    padding: 24px;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .ProfileBlock__img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .ProfileBlock__info {
+    min-width: 0;
+    gap: 20px;
+  }
+
+  .ProfileBlock__name {
+    font-size: 26px;
+    overflow-wrap: anywhere;
+  }
+
+  .ProfileBlock__courses {
+    padding-top: 30px;
+    padding-bottom: 100px;
+  }
+
+  .ProfileBlock__coursesList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ProfileBlock__title {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .ProfileBlock__wrapper {
+    padding: 24px 0 24px 0;
+  }
+
+  .ProfileBlock__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .ProfileBlock__img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .ProfileBlock__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+  }
+
+  .ProfileBlock__name {
+    font-size: 24px;
+  }
+
+  .ProfileBlock__login {
+    font-size: 16px;
+    padding-bottom: 0;
+  }
+
+  .ProfileBlock__btn {
+    font-size: 16px;
+    padding: 16px 116px;
+  }
+
+  .ProfileBlock__courses {
+    padding-top: 0;
+    padding-bottom: 24px;
+  }
+
+  .ProfileBlock__btnWrapper {
+    display: flex;
+    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 40px;
+  }
+
+  .ProfileBlock__button {
+    padding: 16px 26px;
+    background-color: #bcec30;
+
+    &:hover {
+      background-color: #c6ff00;
+    }
+
+    &:active {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  }
+
+  .ProfileBlock__coursesList {
+    display: grid;
+    grid-template-columns: none;
+    gap: 24px;
+    margin-top: 24px;
+  }
 }

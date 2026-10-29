@@ -1,4 +1,3 @@
-
 .Overlay {
   position: fixed;
   inset: 0;
@@ -23,7 +22,7 @@
   box-sizing: border-box;
 }
 
-.Title {
+.Modal__title {
   margin-bottom: 38px;
   color: #000000;
   font-size: 32px;
@@ -31,7 +30,7 @@
   text-align: center;
 }
 
-.List {
+.Modal__list {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -39,24 +38,25 @@
   padding-right: 20px;
 }
 
-.Workout {
+.Modal__workout {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
   padding-bottom: 10px;
   border: none;
-  border-bottom: 1px solid #C4C4C4;
+  border-bottom: 1px solid #c4c4c4;
+  border-radius: 0%;
   background: transparent;
   text-align: left;
   cursor: pointer;
 }
 
-.Workout:hover {
+.Modal__workout:hover {
   background: #f8f8f8;
 }
 
-.CheckCircle {
+.Modal__checkCircle {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -66,15 +66,17 @@
   border: 1px solid #000000;
   border-radius: 50%;
   box-sizing: border-box;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
 }
 
-.CheckCircleSelected {
-  border-color: #BCEC30;
-  background-color: #BCEC30;
+.Modal__checkCircleSelected {
+  border-color: #bcec30;
+  background-color: #bcec30;
 }
 
-.CheckIcon {
+.Modal__checkIcon {
   width: 20px;
   height: 20px;
   fill: none;
@@ -84,7 +86,7 @@
   stroke-linejoin: round;
 }
 
-.WorkoutText {
+.Modal__workoutText {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -92,7 +94,7 @@
   min-width: 0;
 }
 
-.WorkoutName {
+.Modal__workoutName {
   color: #000000;
   font-size: 24px;
   font-weight: 400;
@@ -100,7 +102,7 @@
   padding-top: 10px;
 }
 
-.WorkoutSubtitle {
+.Modal__workoutSubtitle {
   color: #000000;
   font-size: 16px;
   line-height: 110%;
@@ -112,36 +114,52 @@
   text-align: center;
 }
 
-.StartButton {
+.Modal__startButton {
   flex-shrink: 0;
   width: 100%;
   margin-top: 34px;
-  padding: 16px 160px;
+  padding: 16px 24px;
+
   border: none;
   border-radius: 46px;
-  background: #BCEC30;
+  background: #bcec30;
   color: #000000;
+
   font-size: 18px;
   font-weight: 400;
+
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.StartButton:disabled {
+.Modal__startButton:hover:not(:disabled) {
+  background: #a8d626;
+}
+
+.Modal__startButton:disabled {
   background: #c8c8c8;
   cursor: not-allowed;
 }
 
 @media (max-width: 480px) {
-  .Workout {
-    gap: 12px;
-    padding: 16px 2px;
+  .Modal {
+    padding: 30px;
   }
 
-  .WorkoutName {
-    font-size: 15px;
+  .Modal__title {
+    margin-bottom: 34px;
+    text-align: left;
   }
 
-  .WorkoutSubtitle {
-    font-size: 13px;
+  .Modal__workoutName {
+    font-size: 18px;
+  }
+
+  .Modal__workoutSubtitle {
+    font-size: 14px;
+  }
+
+  .Modal__startButton {
+    padding: 16px 110px;
   }
 }

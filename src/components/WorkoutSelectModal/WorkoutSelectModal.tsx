@@ -75,10 +75,10 @@ export default function WorkoutSelectModal({
         aria-modal="true"
         aria-labelledby="workout-modal-title"
       >
-        <h2 id="workout-modal-title" className={styles.Title}>
+        <h2 id="workout-modal-title" className={styles.Modal__title}>
           Выберите тренировку
         </h2>
-        <div className={styles.List}>
+        <div className={styles.Modal__list}>
           {workouts.map((workout) => {
             const isSelected = selectedWorkouts.includes(workout._id);
             const details = getWorkoutDetails(workout.name);
@@ -87,33 +87,33 @@ export default function WorkoutSelectModal({
               <button
                 key={workout._id}
                 type="button"
-                className={styles.Workout}
+                className={styles.Modal__workout}
                 onClick={() => toggleWorkout(workout._id)}
                 aria-pressed={isSelected}
               >
                 <span
-                  className={`${styles.CheckCircle} ${
-                    isSelected ? styles.CheckCircleSelected : ''
+                  className={`${styles.Modal__checkCircle} ${
+                    isSelected ? styles.Modal__checkCircleSelected : ''
                   }`}
                   aria-hidden="true"
                 >
                   {isSelected && (
                     <svg
                       viewBox="0 0 24 24"
-                      className={styles.CheckIcon}
+                      className={styles.Modal__checkIcon}
                     >
                       <path d="M5 12.5 10 17 19 7" />
                     </svg>
                   )}
                 </span>
 
-                <span className={styles.WorkoutText}>
-                  <span className={styles.WorkoutName}>
+                <span className={styles.Modal__workoutText}>
+                  <span className={styles.Modal__workoutName}>
                     {details.title}
                   </span>
 
                   {details.subtitle && (
-                    <span className={styles.WorkoutSubtitle}>
+                    <span className={styles.Modal__workoutSubtitle}>
                       {details.subtitle}
                     </span>
                   )}
@@ -131,7 +131,7 @@ export default function WorkoutSelectModal({
 
         <button
           type="button"
-          className={styles.StartButton}
+          className={styles.Modal__startButton}
           disabled={selectedWorkouts.length === 0}
           onClick={() => onSelect(selectedWorkouts)}
         >

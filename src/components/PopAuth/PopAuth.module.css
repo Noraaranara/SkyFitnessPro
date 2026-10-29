@@ -32,3 +32,20 @@
   align-items: center;
   justify-content: center;
 }
+
+.PopAuth__btn {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 16px 0 16px 0;
+  width: 100%;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+
+  &:active {
+    background-color: #e9eced;
+    color: #000000;
+  }
+}

@@ -7,7 +7,7 @@
 
 .container {
   max-width: 1920px;
-   min-height: 100vh;
+  min-height: 100vh;
   height: auto;
   margin: 0 auto;
   background-color: #fafafa;
@@ -16,4 +16,10 @@
 .main {
   padding: 180px 140px 0;
   background-color: #fafafa;
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 130px 16px 0;
+  }
 }

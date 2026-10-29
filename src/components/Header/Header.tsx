@@ -62,7 +62,7 @@ export default function Header() {
               width={42}
               height={42}
               className={styles.header__profileImg}
-            ></Image>
+            />
             <h4 className={styles.header__profileName}>
               {user?.email ?? 'Мой аккаунт'}
             </h4>
@@ -110,13 +110,12 @@ export default function Header() {
             )}
           </div>
         ) : (
-          <Button
-            variant="primary"
-            padding="16px 26px"
+          <button
             onClick={() => dispatch(openAuthModal())}
+            className={styles.header__button}
           >
             Войти
-          </Button>
+          </button>
         )}
       </header>
       {isAuthModalOpen && (

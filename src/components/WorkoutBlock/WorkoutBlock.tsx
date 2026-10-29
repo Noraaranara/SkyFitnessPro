@@ -7,6 +7,7 @@ import { clearWorkout } from '@/store/features/workoutSlice';
 import { fetchWorkout, saveWorkoutProgress } from '@/utils/fetchWorkout';
 import styles from './WorkoutBlock.module.css';
 import WorkoutProgressModal from '../WorkoutProgressModal/WorkoutProgressModal';
+import { toast } from 'react-toastify';
 
 export default function WorkoutBlock() {
   const params = useParams<{
@@ -94,24 +95,29 @@ export default function WorkoutBlock() {
   const handleSaveProgress = async () => {
     if (!token) return;
 
-    await dispatch(
-      saveWorkoutProgress({
-        courseId,
-        workoutId,
-        token,
-        progressData: workout.exercises.map((exercise, index) =>
-          Math.max(
-            0,
-            Math.min(
-              exercise.quantity,
-              Math.max(0, Number(formProgress[index] ?? 0)),
+    try {
+      await dispatch(
+        saveWorkoutProgress({
+          courseId,
+          workoutId,
+          token,
+          progressData: workout.exercises.map((exercise, index) =>
+            Math.max(
+              0,
+              Math.min(
+                exercise.quantity,
+                Math.max(0, Number(formProgress[index] ?? 0)),
+              ),
             ),
           ),
-        ),
-      }),
-    ).unwrap();
+        }),
+      ).unwrap();
 
-    setIsFormOpen(false);
+      setIsFormOpen(false);
+      toast.success('Прогресс тренировки сохранён!');
+    } catch {
+      toast.error('Не удалось сохранить прогресс. Попробуйте ещё раз.');
+    }
   };
 
   return (

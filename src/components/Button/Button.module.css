@@ -20,6 +20,12 @@
     border-color 0.2s ease;
 }
 
+.responsive {
+  max-width: 100%;
+  white-space: normal;
+}
+
+
 .button:disabled {
   cursor: not-allowed;
 }
@@ -71,4 +77,18 @@
 
 .danger:hover:not(:disabled) {
   background-color: #b42318;
+}
+
+@media (max-width: 768px) {
+  .responsive {
+    min-width: 0;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive {
+    min-height: 42px;
+    font-size: 14px;
+  }
 }

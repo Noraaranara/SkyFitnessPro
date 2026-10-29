@@ -5,8 +5,19 @@
   flex-direction: column;
   gap: 10px;
   background-color: transparent;
+}
+.AuthForm__button {
+  padding: 16px 0 16px 0;
+  width: 100%;
+  margin-top: 24px;
+  background-color: #bcec30;
 
-  button {
-    margin-top: 24px;
+  &:hover {
+    background-color: #c6ff00;
+  }
+
+  &:active {
+    background-color: #000000;
+    color: #ffffff;
   }
 }

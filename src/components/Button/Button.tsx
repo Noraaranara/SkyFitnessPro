@@ -6,6 +6,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   width?: 'auto' | 'full' | string;
   padding?: string;
   radius?: string;
+  responsive?: boolean;
 };
 
 export default function Button({
@@ -17,6 +18,7 @@ export default function Button({
   className = '',
   style,
   type = 'button',
+  responsive = false,
   ...props
 }: ButtonProps) {
   const customStyles: CSSProperties = {
@@ -25,12 +27,18 @@ export default function Button({
     ...(width === 'full' ? { width: '100%' } : {}),
     ...(padding ? { padding } : {}),
     ...(radius ? { borderRadius: radius } : {}),
+    ...(responsive ? { maxWidth: '100%', boxSizing: 'border-box' } : {}),
   };
 
   return (
     <button
       type={type}
-      className={`${styles.button} ${styles[variant]} ${className}`}
+      className={`
+  ${styles.button}
+  ${styles[variant]}
+  ${responsive ? styles.responsive : ''}
+  ${className}
+`}
       style={customStyles}
       {...props}
     >

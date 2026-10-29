@@ -15,9 +15,9 @@ import {
   removeCourseFromUser,
 } from '@/services/courses/coursesApi';
 import { openAuthModal, setUser } from '@/store/features/authSlice';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import WorkoutSelectModal from '../WorkoutSelectModal/WorkoutSelectModal';
+import { toast } from 'react-toastify';
 
 export type CourseItemProps = {
   course: CourseType;
@@ -30,7 +30,6 @@ export default function CourseItem({
 }: CourseItemProps) {
   const dispatch = useAppDispatch();
   const { user, token } = useAppSelector((state) => state.auth);
-  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const duration = formatDailyDuration(course);
@@ -92,7 +91,6 @@ export default function CourseItem({
   const handleToggleCourse = async (e: React.MouseEvent<HTMLSpanElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    setError('');
 
     if (!token || !user) {
       dispatch(openAuthModal());
@@ -115,6 +113,7 @@ export default function CourseItem({
             ),
           }),
         );
+        toast.success('Курс удалён из вашего списка');
       } else {
         await addCourseToUser(course._id, token);
 
@@ -124,13 +123,10 @@ export default function CourseItem({
             selectedCourses: [...user.selectedCourses, course._id],
           }),
         );
+        toast.success('Курс добавлен в ваш список');
       }
-    } catch (err) {
-      const message = axios.isAxiosError(err)
-        ? err.response?.data?.message
-        : null;
-
-      setError(message || 'Не удалось изменить список курсов');
+    } catch {
+      toast.error('Не удалось изменить список курсов');
     } finally {
       setIsLoading(false);
     }
@@ -149,15 +145,13 @@ export default function CourseItem({
 
     try {
       setIsWorkoutsLoading(true);
-      setError('');
-
       const data = await getCourseWorkouts(course._id, token);
 
       setWorkouts(data);
       setIsWorkoutModalOpen(true);
     } catch (error) {
       console.error('Не удалось загрузить тренировки:', error);
-      setError('Не удалось загрузить список тренировок');
+      toast.error('Не удалось загрузить список тренировок');
     } finally {
       setIsWorkoutsLoading(false);
     }
@@ -189,7 +183,6 @@ export default function CourseItem({
             />
           </span>
         </div>
-        {error && <p role="alert">{error}</p>}
         <div className={styles.Course__info}>
           <h3 className={styles.Course__title}>{course.nameRU}</h3>
           <div className={styles.Course__items}>
