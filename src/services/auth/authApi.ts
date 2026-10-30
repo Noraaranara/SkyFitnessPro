@@ -14,14 +14,22 @@ type RegisterResponse = {
 };
 
 export const authUser = async (data: AuthUserProps): Promise<LoginResponse> => {
-  const response = await api.post('/auth/login', data);
+  const response = await api.post('/auth/login', data, {
+    headers: {
+      'Content-Type': null,
+    },
+  });
   return response.data;
 };
 
 export const registerUser = async (
   data: AuthUserProps,
 ): Promise<RegisterResponse> => {
-  const response = await api.post('/auth/register', data);
+  const response = await api.post('/auth/register', data, {
+    headers: {
+      'Content-Type': null,
+    },
+  });
   return response.data;
 };
 

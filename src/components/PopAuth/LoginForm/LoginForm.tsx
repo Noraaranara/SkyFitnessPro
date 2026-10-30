@@ -83,7 +83,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
     } catch (error) {
       const message = getApiErrorMessage(
         error,
-        'Не удалось сохранить прогресс. Попробуйте ещё раз.',
+        'Не удалось Войти. Попробуйте ещё раз.',
       );
       setServerError(message);
     } finally {

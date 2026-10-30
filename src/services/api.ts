@@ -3,9 +3,6 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: 'https://wedev-api.sky.pro/api/fitness',
-  headers: {
-    'Content-Type': 'application/json',
-  },
 });
 
 
