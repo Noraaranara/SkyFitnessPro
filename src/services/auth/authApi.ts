@@ -1,7 +1,6 @@
-import axios from 'axios';
-import { BASE__URL } from '../constants';
+import api from '../api';
 
-type authUserProps = {
+type AuthUserProps = {
   email: string;
   password: string;
 };
@@ -14,32 +13,31 @@ type RegisterResponse = {
   message: string;
 };
 
-export const authUser = (data: authUserProps): Promise<LoginResponse> => {
-  return axios
-    .post(BASE__URL + '/auth/login', data, {
-      headers: {
-        'Content-Type': false,
-      },
-    })
-    .then((res) => res.data);
+export const authUser = async (data: AuthUserProps): Promise<LoginResponse> => {
+  const response = await api.post('/auth/login', data, {
+    headers: {
+      'Content-Type': null,
+    },
+  });
+  return response.data;
 };
 
-export const registerUser = (
-  data: authUserProps,
+export const registerUser = async (
+  data: AuthUserProps,
 ): Promise<RegisterResponse> => {
-  return axios
-    .post(BASE__URL + '/auth/register', data, {
-      headers: {
-        'Content-Type': false,
-      },
-    })
-    .then((res) => res.data);
+  const response = await api.post('/auth/register', data, {
+    headers: {
+      'Content-Type': null,
+    },
+  });
+  return response.data;
 };
 
-export const getCurrentUser = (token: string) => {
-  return axios(BASE__URL + '/users/me', {
+export const getCurrentUser = async (token: string) => {
+  const response = await api.get('/users/me', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }).then((res) => res.data);
+  });
+  return response.data;
 };

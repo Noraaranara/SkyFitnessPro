@@ -1,0 +1,171 @@
+.Overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgb(0 0 0 / 50%);
+}
+
+.Modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  max-height: min(700px, 85vh);
+  padding: 40px;
+  border-radius: 30px;
+  background: #ffffff;
+  box-sizing: border-box;
+  max-width: 426px;
+}
+
+.Modal__title {
+  flex-shrink: 0;
+  margin: 0 0 38px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.Modal__form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.Modal__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  min-height: 0;
+  padding-right: 20px;
+}
+
+.Modal__exercise {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Modal__label {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.Modal__inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.Modal__input {
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 18px;
+  border: 1px solid #d0cece;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #000000;
+  font: inherit;
+  font-size: 18px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.Modal__placeholder {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  color: #d0cece;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.Modal__saveButton {
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 34px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 46px;
+  background: #bcec30;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.Modal__saveButton:hover {
+  background: #aee51c;
+}
+
+.Modal__saveButton:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .Overlay {
+    padding: 24px;
+  }
+
+  .Modal {
+    width: 100%;
+    max-width: 426px;
+    max-height: 85vh;
+    padding: 32px;
+    box-sizing: border-box;
+  }
+
+  .Modal__title {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .Modal__list {
+    padding-right: 12px;
+  }
+
+  .Modal__saveButton {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Modal {
+    max-width: 344px;
+    border-radius: 30px;
+  }
+
+  .Modal__title {
+    margin-bottom: 38px;
+    font-size: 32px;
+  }
+
+  .Modal__label {
+    font-size: 16px;
+  }
+
+  .Modal__input {
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+
+  .Modal__placeholder {
+    font-size: 14px;
+  }
+
+  .Modal__saveButton {
+    padding: 16px 86px;
+    min-height: 52px;
+  }
+}

@@ -91,7 +91,6 @@
 }
 
 .header__profileBlockProfile {
-  /* width: 100%; */
   background-color: #bcec30;
   color: #000000;
   border: none;
@@ -101,24 +100,86 @@
   font-weight: 400;
 }
 
-.header__profileBlockLogout {
-  width: 100%;
-  background-color: transparent;
-  border: 1px solid #000000;
-  border-radius: 46px;
-  padding: 16px 76px;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.header__pr,
 .header__button {
   background-color: #bcec30;
-  font-weight: 400;
-  font-size: 18px;
   padding: 16px 26px;
-  color: black;
-  border-radius: 46px;
-  border: none;
-  cursor: pointer;
+
+  &:hover {
+    background-color: #c6ff00;
+  }
+
+  &:active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .header {
+    padding: 24px 32px;
+    gap: 24px;
+  }
+
+  .header__logoGroup {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .header__logoGroup img {
+    max-width: 190px;
+    height: auto;
+  }
+
+  .header__logoGroup span {
+    font-size: 15px;
+  }
+
+  .header__profile {
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .header__profileName {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 40px 16px;
+  }
+
+  .header__logoGroup {
+    span {
+      display: none;
+    }
+  }
+
+  .header__profile {
+    gap: 12px;
+  }
+
+  .header__profileName {
+    display: none;
+  }
+
+  .header__profileBlock {
+    position: absolute;
+    top: 50px;
+  }
+
+  .header__profileBlockWrapper {
+    display: flex;
+    gap: 24px;
+    padding: 16px;
+  }
+
+  .header__profileBlockMail {
+    display: none;
+  }
+
+  .header__button {
+    padding: 8px 16px;
+  }
 }

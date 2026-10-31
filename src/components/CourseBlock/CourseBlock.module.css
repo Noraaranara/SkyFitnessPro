@@ -1,3 +1,7 @@
+.CourseBlock__mobImg {
+  display: none;
+}
+
 .CourseBlock__title {
   padding: 60px 0 40px 0;
   font-weight: 600;
@@ -62,6 +66,8 @@
   background-color: #ffffff;
   box-shadow: 0px 4px 67px -12px #00000021;
   border-radius: 30px;
+  margin-bottom: 46px;
+  isolation: isolate;
 }
 
 .CourseBlock__startBlock {
@@ -110,6 +116,11 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 110%;
+
+  &:disabled {
+    background-color: #f7f7f7;
+    color: #999999;
+  }
 }
 
 .CourseBlock__startImg {
@@ -119,20 +130,191 @@
   right: 0;
   right: 0;
   bottom: 0;
-  width: 55%;
+  width: 100%;
   pointer-events: none;
-}
-
-.CourseBlock__startBg {
-  position: absolute;
-  z-index: 1;
-  top:8;
-  right: 0;
 }
 
 .CourseBlock__startRunner {
   position: absolute;
-  z-index: 2;
-  bottom: 20;
-  right: 30;
+  z-index: 1;
+  bottom: -2;
+  right: -15;
+  width: 650px;
+  height: auto;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .CourseBlock__title {
+    padding: 44px 0 28px;
+    font-size: 32px;
+  }
+
+  .CourseBlock__fittingsBox {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .CourseBlock__fitting {
+    min-width: 0;
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .CourseBlock__num {
+    flex-shrink: 0;
+    font-size: 52px;
+  }
+
+  .CourseBlock__fit {
+    min-width: 0;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+  }
+
+  .CourseBlock__directionsBox {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 24px;
+  }
+
+  .CourseBlock__direct {
+    font-size: 20px;
+  }
+
+  .CourseBlock__start {
+    margin-top: 72px;
+    overflow: hidden;
+  }
+
+  .CourseBlock__startBlock {
+    max-width: 60%;
+    padding: 32px;
+  }
+
+  .CourseBlock__startTitle {
+    font-size: 44px;
+  }
+
+  .CourseBlock__startList {
+    font-size: 18px;
+  }
+
+  .CourseBlock__startbtn {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 24px;
+  }
+
+  .CourseBlock__startRunner {
+    width: 52%;
+    height: auto;
+    right: -10px;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .CourseBlock__mobWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .CourseBlock__mobImg {
+    display: block;
+    border-radius: 30px;
+  }
+
+  .CourseBlock__title {
+    padding: 40px 0 24px 0;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  .CourseBlock__fittingsBox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .CourseBlock__fit {
+    font-size: 18px;
+  }
+
+  .CourseBlock__directionsBox {
+    grid-template-columns: none;
+    row-gap: 24;
+  }
+
+  .CourseBlock__direction {
+    display: flex;
+    gap: 10px;
+  }
+
+  .CourseBlock__direct {
+    font-size: 18px;
+  }
+
+  .CourseBlock__start {
+    position: relative;
+    isolation: isolate;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0px 4px 67px -12px #00000021;
+    margin-top: 156px;
+    margin-bottom: 30px;
+    overflow: visible;
+  }
+
+  .CourseBlock__startWrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .CourseBlock__startBlock {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .CourseBlock__startTitle {
+    font-size: 32px;
+    min-width: 250px;
+  }
+
+  .CourseBlock__startInfo {
+    padding-left: 28px;
+  }
+
+  .CourseBlock__startList {
+    font-size: 18px;
+    padding-bottom: 6px;
+
+    &::marker {
+      padding-left: 12px;
+    }
+  }
+
+  .CourseBlock__startbtn {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .CourseBlock__startImg {
+    position: absolute;
+    top: -268px;
+    right: -116px;
+    width: 550px;
+    height: 536px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .CourseBlock__startRunner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+  }
 }

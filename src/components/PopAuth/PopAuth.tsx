@@ -10,13 +10,19 @@ type AuthModalProps = {
 
 export default function PopAuth({ onClose }: AuthModalProps) {
   const [isLogin, setIsLogin] = useState(true);
-  
+
   return (
-    <section className={styles.PopAuth} >
-      <div className={styles.PopAuth__container}onClick={() => {
-    onClose();
-  }}>
-        <div className={styles.PopAuth__Block} onClick={(e) => e.stopPropagation()}>
+    <section className={styles.PopAuth}>
+      <div
+        className={styles.PopAuth__container}
+        onClick={() => {
+          onClose();
+        }}
+      >
+        <div
+          className={styles.PopAuth__Block}
+          onClick={(e) => e.stopPropagation()}
+        >
           <Image
             alt="logo"
             src={'/logo.png'}
@@ -24,8 +30,17 @@ export default function PopAuth({ onClose }: AuthModalProps) {
             height={34}
             className={styles.PopAuth__logo}
           />
-          {isLogin ? <LoginForm onClose={onClose}/> : <RegisterForm onRegisterSuccess={() => setIsLogin(true)} />}
-          <button onClick={() => setIsLogin(!isLogin)} className={styles.PopAuth__btn}>{ isLogin ? 'Зарегистрироваться' : 'Войти'}</button>
+          {isLogin ? (
+            <LoginForm onClose={onClose} />
+          ) : (
+            <RegisterForm onRegisterSuccess={() => setIsLogin(true)} />
+          )}
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            className={styles.PopAuth__btn}
+          >
+            {isLogin ? 'Зарегистрироваться' : 'Войти'}
+          </button>{' '}
         </div>
       </div>
     </section>

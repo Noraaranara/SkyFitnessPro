@@ -39,3 +39,17 @@ li {
   max-width: 280px;
   text-align: center;
 }
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 46px;
+
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: none;
+}

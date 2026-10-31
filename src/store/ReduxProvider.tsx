@@ -27,8 +27,8 @@ export default function ReduxProvider({
         const response = await getCurrentUser(token);
         const user = response.user;
 
-        storeRef.current?.dispatch(setUser(user));
         storeRef.current?.dispatch(setToken(token))
+        storeRef.current?.dispatch(setUser(user));
 
         localStorage.setItem('user', JSON.stringify(user));
       } catch {

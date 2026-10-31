@@ -15,3 +15,39 @@ export type CourseType = {
   workouts: string[];
 };
 
+export type WorkoutProgressType = {
+  workoutId: string;
+  workoutCompleted: boolean;
+  progressData: number[];
+};
+
+export type CourseProgressType = {
+  courseId: string;
+  courseCompleted: boolean;
+  workoutsProgress: WorkoutProgressType[];
+};
+
+export type WorkoutProgressResponse = {
+  workoutId: string;
+  workoutCompleted: boolean;
+  progressData: number[];
+};
+
+
+export type ApiMessage = {
+  message: string;
+};
+
+export type ExerciseType = {
+  _id: string;
+  name: string;
+  quantity: number;
+};
+
+export type WorkoutType = {
+  _id: string;
+  name: string;
+  video: string;
+  exercises: ExerciseType[];
+};
+

@@ -66,3 +66,105 @@
     color: black;
   }
 }
+
+.Course__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.Course__progressInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  color: #000000;
+}
+
+.Course__progressTrack {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 50px;
+  background-color: #f7f7f7;
+}
+
+.Course__progressFill {
+  height: 100%;
+  border-radius: inherit;
+  background-color: #00c1ff;
+  transition: width 0.3s ease;
+}
+
+.Course__progressBtn {
+  background-color: #bcec30;
+  border-radius: 46px;
+  border: none;
+  color: #000000;
+  width: 100%;
+  padding: 16px 0;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Course__progressBtn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .Course__info {
+    padding: 20px 22px 16px;
+    gap: 16px;
+  }
+
+  .Course__title {
+    font-size: 26px;
+    overflow-wrap: anywhere;
+  }
+
+  .Course__days,
+  .Course__time,
+  .Course__difficulty {
+    padding: 8px 10px;
+  }
+
+  .Course__days span,
+  .Course__time span,
+  .Course__difficulty span {
+    font-size: 14px;
+  }
+
+  .Course__btn {
+    right: 16px;
+    top: 16px;
+  }
+
+  .Course__progressInfo {
+    font-size: 16px;
+  }
+
+  .Course__progressBtn {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Course__info {
+    padding: 24px 22px;
+  }
+
+  .Course__title {
+    font-size: 24px;
+  }
+
+  .Course__progressBtn {
+    font-size: 16px;
+  }
+}

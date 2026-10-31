@@ -34,17 +34,18 @@
 }
 
 .PopAuth__btn {
+  color: #1a1a1a;
+  background-color: #ffffff;
   border: 1px solid #000000;
-  border-radius: 46px;
-  background-color: transparent;
-  color: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 110%;
-  width: 100%;
   padding: 16px 0 16px 0;
+  width: 100%;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+
+  &:active {
+    background-color: #e9eced;
+    color: #000000;
+  }
 }

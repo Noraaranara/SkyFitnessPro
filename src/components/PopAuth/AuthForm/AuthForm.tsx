@@ -1,4 +1,4 @@
-import styles from '@/components/PopAuth/AuthForm/AuthForm.module.css'
+import styles from '@/components/PopAuth/AuthForm/AuthForm.module.css';
 
 type AuthFormProps = {
   buttonText: string;
