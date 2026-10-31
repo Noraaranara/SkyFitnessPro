@@ -19,11 +19,15 @@ export const addCourseToUser = async (
   courseId: string,
   token: string,
 ): Promise<ApiMessage> => {
-  const response = await api.post('/users/me/courses', courseId, {
-    headers: {
-      Authorization: `Bearer ${token}`,
+  const response = await api.post(
+    '/users/me/courses',
+    { courseId },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     },
-  });
+  );
   return response.data;
 };
 
@@ -53,10 +57,10 @@ export const getCourseProgress = async (
   token: string,
 ): Promise<CourseProgressType> => {
   const response = await api.get('/users/me/progress', {
-      params: { courseId },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    params: { courseId },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
