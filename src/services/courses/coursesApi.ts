@@ -25,6 +25,8 @@ export const addCourseToUser = async (
     {
       headers: {
         Authorization: `Bearer ${token}`,
+              'Content-Type': null,
+
       },
     },
   );
